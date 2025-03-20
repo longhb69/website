@@ -5,18 +5,21 @@ import PictureSetion from "./section/PictureSection"
 import CommentSection from "./section/CommentSection";
 import AboutSection from "./section/AboutSection";
 import FooterSection from "./section/FooterSection";
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
   return (
-    <div className="App w-full">
-      <MainSection/>
-      <AboutSection/>
-      <VideoSection />
-      <PictureSetion />
-      <PriceSection />
-      <CommentSection />
-      <FooterSection/>
-    </div>
+    <ModalProvider>
+      <div className="App w-full">
+        <MainSection />
+        <AboutSection />
+        <VideoSection />
+        <PictureSetion />
+        <PriceSection />
+        <CommentSection />
+        <FooterSection/>
+      </div>
+    </ModalProvider>
   );
 }
 

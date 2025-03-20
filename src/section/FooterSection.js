@@ -17,10 +17,14 @@ export default function FooterSection() {
                     </div>
                 </div>
             </div>
+            <div className="w-[30%] flex flex-col space-y-4 items-start">
+                <div className="font-semibold text-lg">TRỢ GIÚP</div>
+                <div>Liên hệ hỗ trợ, khiếu nại</div>
+            </div>
             <div className="w-[40%]">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2232.250386247491!2d105.35544282788136!3d20.79535353772951!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31346bbbdc18f153%3A0xb98582d9931c7347!2zVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBMw6FpIFhlIEhvw6AgQsOsbmg!5e1!3m2!1sen!2s!4v1742441641359!5m2!1sen!2s" 
-                    width="100%" height="400" 
+                    width="100%" height="300" 
                     className="rounded"
                     allowfullscreen="" 
                     loading="lazy" 

@@ -1,6 +1,7 @@
 import CompanyImage from "../compoment/CompanyImage";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
+import { UseModal } from "../context/ModalContext";
 
 const splideOptions = {
     type: "loop",
@@ -10,9 +11,30 @@ const splideOptions = {
     pagination: false,
     autoplay: true,
     drag: true,
-  };
+};
+
+const image1 = [
+    "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
+    "https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/14634128/sony_santa_monica.0.1489374691.jpg?quality=90&strip=all&crop=7.7954545454545,0,84.409090909091,100",
+    "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
+    "https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"
+]
+
+const image2 = [
+    "https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg",
+    "https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/14634128/sony_santa_monica.0.1489374691.jpg?quality=90&strip=all&crop=7.7954545454545,0,84.409090909091,100",
+    "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
+    "https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"
+]
 
 export default function PictureSection() {    
+    const { setModal } = UseModal()
+    const handleImageFocus = (index) => {
+        var items = { modals: [] };
+        items.modals.push(index)
+        console.log("Image focus:", index);
+        setModal(items)
+    };
     return <section className="bg-[#FFCEBD] w-full h-full py-10">
         <div className="w-full ">
         <div className="flex items-center w-full pb-5">
@@ -26,18 +48,15 @@ export default function PictureSection() {
                 <Splide
                     options={{...splideOptions, direction: "ltr" }}
                 >
-                    <SplideSlide>
-                        <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <CompanyImage src={"https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/14634128/sony_santa_monica.0.1489374691.jpg?quality=90&strip=all&crop=7.7954545454545,0,84.409090909091,100"} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                    </SplideSlide>
-                    <SplideSlide>
-                        <CompanyImage src={"https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"} />                
-                    </SplideSlide>
+                    {image1.map((image, idx) => (
+                        <SplideSlide key={idx}>
+                            <div onClick={() => handleImageFocus(idx)}>
+                                <CompanyImage 
+                                    src={image1[idx]}
+                                />
+                            </div>
+                        </SplideSlide>
+                    ))}
                 </Splide>
             </div>
             <div>
@@ -59,21 +78,6 @@ export default function PictureSection() {
                     </SplideSlide>
                 </Splide>
             </div>
-            {/* <div className="flex">
-                <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                <CompanyImage src={"https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/14634128/sony_santa_monica.0.1489374691.jpg?quality=90&strip=all&crop=7.7954545454545,0,84.409090909091,100"} />
-                <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-                <CompanyImage src={"https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae"} />
-            </div>
-            <div className="flex">
-                <CompanyImage src={"https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"} />
-                <CompanyImage src={"https://platform.polygon.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/14634128/sony_santa_monica.0.1489374691.jpg?quality=90&strip=all&crop=7.7954545454545,0,84.409090909091,100"} />
-                <CompanyImage src={"https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"} />
-                <CompanyImage src={"https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"} />
-                <CompanyImage src={"https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg"} />
-            </div> */}
         </div>
     </section>
 }
