@@ -4,7 +4,7 @@ export default function VideoSection() {
             <div className="flex-1">
                 <iframe 
                     className="w-full h-[500px]" 
-                    src="https://www.youtube.com/embed/QdBZY2fkU-0?si=Sh2w7xPjb4GdnVz_" 
+                    src="https://www.youtube.com/embed/DZAdVY9kKbc?si=CdzQObKinLchFJdl" 
                     title="YouTube video player" 
                     frameBorder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 

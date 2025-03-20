@@ -17,6 +17,7 @@ export default function PriceCard() {
             </div>
             <div className="border-[1px] border my-5"></div>
             <div className="text-black">Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem</div>
+            <Button variant="secondary" className="mt-5 w-full">Xem Chi Tiết</Button>
         </div>
     </div>
 }
