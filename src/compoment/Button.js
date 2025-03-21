@@ -9,7 +9,7 @@ const Button = ({
   disabled = false,
   ...props
 }) => {
-  const baseStyles = "rounded-lg font-medium transition-all duration-100 focus:outline-none focus:ring-2 flex items-center justify-center text-center";
+  const baseStyles = "rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 flex items-center justify-center text-center";
 
   const variantStyles = {
     primary: "bg-[#FFCFBE]/[.9] text-[#250E62] hover:bg-[#FFCFBE] focus:ring-blue-400",

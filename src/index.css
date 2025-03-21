@@ -16,6 +16,84 @@ code {
     monospace;
 }
 
-.second-slider .splide__slide .company-image {
+.second-slider .splide__slide .image-slider-container {
   transform: translateX(60px); /* Moves images down */
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.64);
+  backdrop-filter: blur(5px);
+}
+
+.carouselModal {
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal_image {
+  margin: 0 auto;
+  pointer-events: all;
+  position: relative;
+  max-height: 100%;
+  animation: modal-scale-in_v2 0.2s ease-in-out forwards;
+}
+
+@keyframes modal-scale-in_v2 {
+  0% {
+      opacity: 0.5;
+      transform: scale(0.5);
+  }
+
+  50% {
+      opacity: 1;
+      transform: scale(1.05);
+  }
+
+  100% {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.arrowContainer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: all;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(0);
+  pointer-events: auto;
+  z-index: 99;
+}
+
+.layer_ad {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  pointer-events: none;
+}
+
+.modalCarouselWrapper {
+  align-items: center !important;
 }
