@@ -5,10 +5,11 @@ export default function SignUp() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
+        await new Promise((resolve) => setTimeout(resolve, 1000))
         console.log("Form Data:", data);
     };
 
@@ -39,8 +40,8 @@ export default function SignUp() {
             {errors.password && <p className="text-red-500">{errors.password.message}</p>}
 
             {/* Submit Button */}
-            <button type="submit" className="bg-blue-500 text-white p-2 rounded w-full">
-                Submit
+            <button disabled={isSubmitting} type="submit" className="bg-blue-500 text-white p-2 rounded w-full">
+                {isSubmitting ? "Loading..." : "Submit"}
             </button>
         </form>
     );
