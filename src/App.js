@@ -1,26 +1,28 @@
-import MainSection from "./section/MainSection";
-import PriceSection from "./section/PriceSection";
-import VideoSection from "./section/VideoSection";
-import PictureSetion from "./section/PictureSection"
-import CommentSection from "./section/CommentSection";
-import AboutSection from "./section/AboutSection";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./page/Home";
+import B01 from "./page/B01";
 import FooterSection from "./section/FooterSection";
-import { ModalProvider } from "./context/ModalContext";
+
+function Layout({ children }) {
+    return (
+        <div>
+            <main className="flex-grow">{children}</main>
+            <FooterSection/>
+        </div>
+    )
+}
 
 function App() {
-  return (
-    <ModalProvider>
-      <div className="App w-full">
-        <MainSection />
-        <AboutSection />
-        <VideoSection />
-        <PictureSetion />
-        <PriceSection />
-        <CommentSection />
-        <FooterSection/>
-      </div>
-    </ModalProvider>
-  );
+    return (
+        <Router>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/B01" element={<B01 />}/>
+                </Routes>
+            </Layout>
+        </Router>
+    );
 }
 
 export default App;
