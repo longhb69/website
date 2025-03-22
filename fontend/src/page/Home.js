@@ -4,7 +4,6 @@ import VideoSection from "../section/VideoSection";
 import PictureSetion from "../section/PictureSection";
 import CommentSection from "../section/CommentSection";
 import AboutSection from "../section/AboutSection";
-import FooterSection from "../section/FooterSection";
 
 export default function Home() {
     return (
@@ -15,7 +14,6 @@ export default function Home() {
             <PictureSetion />
             <PriceSection />
             <CommentSection />
-            <FooterSection />
         </div>
     );
 }
