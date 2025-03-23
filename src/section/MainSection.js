@@ -4,10 +4,9 @@ import NavBar from "../component/NavBar";
 export default function MainSection() {
     return (
         <>
-            <section className="bg-[#250E62] w-full h-screen pb-10">
+            <section className="bg-[#250E62] w-full h-screen py-10">
                 <div className="w-[80%] mx-auto">
-                    <NavBar />
-                    <div className="flex gap-10 mt-9">
+                    <div className="flex gap-10">
                         <div className="text-[#FFCEBD] w-[40%] leading-5">
                             <div className="text-4xl font-bold">
                                 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
