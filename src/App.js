@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./page/Home";
-import B01 from "./page/B01";
 import FooterSection from "./section/FooterSection";
+import CarClass from "./page/CarClass";
 
 function Layout({ children }) {
     return (
@@ -18,7 +18,7 @@ function App() {
             <Layout>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/B01" element={<B01 />}/>
+                    <Route path="/hangxe/:name" element={<CarClass />}/>
                 </Routes>
             </Layout>
         </Router>
