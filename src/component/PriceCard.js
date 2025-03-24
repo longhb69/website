@@ -15,10 +15,10 @@ export default function PriceCard({ info }) {
             <div className="p-5">
                 <h1 className="font-bold text-4xl mb-2">{name}</h1>
                 <div className="flex items-center gap-2">
-                    <div className="font-normal line-through">
+                    <div className="font-normal text-lg line-through">
                         {base_price} <span className="">VNĐ</span>
                     </div>
-                    <div className="bg-[#D5DFFF] text-xs md:text-base font-bold rounded-full text-center p-2">
+                    <div className="bg-[#D5DFFF] text-xs md:text-sm font-bold rounded-full text-center p-2">
                         Giảm {discount}k khi đăng ký online
                     </div>
                 </div>

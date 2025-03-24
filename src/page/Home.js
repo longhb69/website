@@ -5,6 +5,7 @@ import PictureSetion from "../section/PictureSection";
 import CommentSection from "../section/CommentSection";
 import AboutSection from "../section/AboutSection";
 import NavBar from "../component/NavBar";
+import SignUpSection from "../section/SignUpSection";
 
 export default function Home() {
     return (
@@ -16,6 +17,7 @@ export default function Home() {
             <PictureSetion />
             <PriceSection />
             <CommentSection />
+            <SignUpSection className={""}/>
         </div>
     );
 }

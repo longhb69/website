@@ -7,7 +7,11 @@ export default function SignUpSection({ className }) {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
-    } = useForm();
+    } = useForm({
+        defaultValues: {
+            contact: "phone"
+        }
+    });
 
     const [classSelected, setClassSelected] = useState(className);
 
@@ -17,15 +21,20 @@ export default function SignUpSection({ className }) {
     };
 
     return (
-        <section className="py-10 relative">
-            <div className="absolute inset-0 z-[1] bg-[url('https://hips.hearstapps.com/hmg-prod/images/20715-2024-telluride-65426de131184.jpg')] bg-cover bg-center"></div>
-            <div className="w-[70%] relative z-[2] mx-auto p-5 rounded-xl backdrop-blur-lg">
+        <section id="register" className="py-10 relative bg-[url('https://hips.hearstapps.com/hmg-prod/images/20715-2024-telluride-65426de131184.jpg')] bg-cover bg-center">
+            {/* <div className="absolute inset-0 z-[1] bg-[url('https://hips.hearstapps.com/hmg-prod/images/20715-2024-telluride-65426de131184.jpg')] bg-cover bg-center">
+            </div> */}
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-xs"></div>
+            <div className="relative uppercase z-10 flex w-[50%] md:w-fit flex-col items-center justify-center bg-[#FECFBD] text-[#E13D46] font-bold mx-auto text-center p-3 text-sm md:text-2xl rounded-lg">
+                Đăng ký ngay hôm nay để nhận ưu đãi 500k
+            </div>
+            <div className="w-[70%] relative z-[2] mx-auto p-5 rounded-xl">
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     {/* Class (Dropdown) */}
                     <select
                         {...register("class", {
                             required: "Vui lòng chọn khóa",
-                            validate: (value) => value !== "" || "Vui lòng chọn khóa",
+                            validate: (value) => value !== "" || "Vui lòng chọn hạng đào tạo",
                         })}
                         value={classSelected}
                         onChange={(e) => setClassSelected(e.target.value)}
@@ -51,10 +60,10 @@ export default function SignUpSection({ className }) {
                             A2
                         </option>
                     </select>
-                    {errors.class && <p className="text-white">{errors.class.message}</p>}
+                    {errors.class && <p className="text-red-500">{errors.class.message}</p>}
                     {/* Name Input */}
                     <input
-                        {...register("name", { required: "Name is required" })}
+                        {...register("name", { required: "Hãy nhập tên của bạn" })}
                         placeholder="Nhập tên bạn"
                         className="border rounded-xl p-3 w-full focus:ring-2 focus:ring-[#E13D46] focus:outline-none"
                     />
@@ -78,7 +87,7 @@ export default function SignUpSection({ className }) {
                     />
                     {errors.email && <p className="text-red-500">{errors.email.message}</p>}
 
-                    <div className="flex gap-5 text-white">
+                    <div className="flex gap-5 text-white font-semibold">
                         <div>Giới Tính: </div>
                         <label className="flex items-center space-x-2 cursor-pointer">
                             <input type="radio" {...register("gender", { required: "Vui lòng chọn giới tính" })} value="male" className="w-4 h-4" />
@@ -89,7 +98,7 @@ export default function SignUpSection({ className }) {
                             <span>Nữ</span>
                         </label>
                     </div>
-                    <div className="flex gap-5 text-white">
+                    <div className="flex flex-col md:flex-row font-semibold gap-5 text-white">
                         <div>Liên lạc qua: </div>
                         <label className="flex items-center space-x-2 cursor-pointer">
                             <input
@@ -98,7 +107,7 @@ export default function SignUpSection({ className }) {
                                 value="zalo"
                                 className="w-4 h-4"
                             />
-                            <span>Zalo</span>
+                            <span className="font-semibold">Zalo</span>
                         </label>
                         <label className="flex items-center space-x-2 cursor-pointer">
                             <input
@@ -107,7 +116,7 @@ export default function SignUpSection({ className }) {
                                 value="phone"
                                 className="w-4 h-4"
                             />
-                            <span>Điện thoại</span>
+                            <span className="font-semibold">Điện thoại</span>
                         </label>
                         <label className="flex items-center space-x-2 cursor-pointer">
                             <input
@@ -116,7 +125,7 @@ export default function SignUpSection({ className }) {
                                 value="gmail"
                                 className="w-4 h-4"
                             />
-                            <span>Gmail</span>
+                            <span className="font-semibold">Gmail</span>
                         </label>
                     </div>
 

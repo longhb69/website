@@ -1,5 +1,5 @@
 export default function AboutSection() {
-    return <section className="bg-[#fff] text-[#250E62] w-full h-full py-10">
+    return <section id="about" className="bg-[#fff] text-[#250E62] w-full h-full py-10">
         <div className="w-[80%] flex gap-5 mx-auto">
             <div className="w-[50%] h-fit">
                 <h1 className="text-3xl font-bold">Về Chúng Tôi</h1>

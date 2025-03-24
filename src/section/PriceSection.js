@@ -11,16 +11,16 @@ const B01 = {
 
 const B = {
     name: "B",
-    base_price: "16.500.00",
-    price: "16.000.000",
+    base_price: "16.000.00",
+    price: "15.500.000",
     discount: "500",
     time: "3 Tháng",
 };
 
 const C = {
     name: "C",
-    base_price: "20.300.00",
-    price: "19.800.000",
+    base_price: "19.000.00",
+    price: "18.500.000",
     discount: "500",
     time: "5 Tháng",
 };
@@ -43,7 +43,7 @@ const A2 = {
 
 export default function PriceSection() {
     return (
-        <section className="bg-[#2F1C6A] w-full h-full py-10">
+        <section id="pricing" className="bg-[#2F1C6A] w-full h-full py-10">
             <div className="w-full md:w-[80%] mx-auto">
                 <div className="flex flex-col items-center justify-center font-bold pt-2 pb-10">
                     <h1 className="text-[#fff] text-xl lg:text-3xl">Chương trình đào tạo bằng lái xe</h1>
