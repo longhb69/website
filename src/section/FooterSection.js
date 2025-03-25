@@ -16,7 +16,7 @@ export default function FooterSection() {
                             Hotline: <span className="text-[#F54343]">02183500555</span>
                         </div>
                         <div>
-                            Email: <span className="text-[#F54343]">support@viettelidc.com.vn</span>
+                            Email: <span className="text-[#F54343]">support@gmail.com.vn</span>
                         </div>
                         <div className="w-[25px] h-[25px] mt-4">
                             <a href="https://www.facebook.com/laixehoabinh" target="_blank">

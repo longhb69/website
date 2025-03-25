@@ -23,17 +23,6 @@ export default function NavBar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, [])
 
-    useEffect(() => {
-        if (menuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "auto";
-        }
-        return () => {
-            document.body.style.overflow = "auto"; // Reset when component unmounts
-        };
-    }, [menuOpen]);
-
     const handleRegisterClick = () => {
         const section = document.getElementById("register"); 
         if (section) {
@@ -46,12 +35,13 @@ export default function NavBar() {
         const target = document.getElementById("about");
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
+          setMenuOpen(false)
         }
     };
 
     return (
         <div className="bg-[#250E62] w-full">
-            <div className="flex relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] w-full md:w-[80%] md:mx-auto justify-between items-center px-5 md:px-0 py-6">
+            <div className="flex max-w-7xl relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] w-full md:w-[80%] md:mx-auto justify-between items-center px-5 md:px-0 py-6">
                 {/* Left Section */}
                 <div className="flex items-center">
                     <h1 className="font-bold text-3xl text-[#FFCEBD]">LOGO</h1>
@@ -76,21 +66,23 @@ export default function NavBar() {
                                     }`}  
                                 />       
                             </button>
-                            {isDropdownOpen && (
-                                <motion.ul
-                                    initial={{ opacity: 0, y: -10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                                    className="absolute left-0 font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
-                                >
-                                    <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B0.1")}>Học lái xe ôtô hạng B0.1</li>
-                                    <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B")}>Học lái xe ôtô hạng B</li>
-                                    <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/C")}>Học lái xe ôtô hạng C</li>
-                                    <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A1")}>Học lái xe máy hạng A1</li>
-                                    <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A2")}>Học lái xe máy hạng A2</li>
-                                </motion.ul>
-                            )}
+                            <AnimatePresence>
+                                {isDropdownOpen && (
+                                    <motion.ul
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                                        className="absolute left-0 font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
+                                    >
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B0.1")}>Học lái xe ôtô hạng B0.1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B")}>Học lái xe ôtô hạng B</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/C")}>Học lái xe ôtô hạng C</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A1")}>Học lái xe máy hạng A1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A2")}>Học lái xe máy hạng A2</li>
+                                    </motion.ul>
+                                )}
+                            </AnimatePresence>
                         </li>
                         <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">
                             <a href="#pricing">
@@ -135,22 +127,27 @@ export default function NavBar() {
                                     <li 
                                         className="cursor-pointer flex flex-col transition-colors duration-100 border-b border-gray-300"
                                     >
-                                        <div 
+                                        <button 
                                             className="flex items-center gap-5 p-4"
+                                            onClick={() => {
+                                                setIsMobileDropdownOpen(!isMobileDropdownOpen); 
+                                            }}
                                         >
                                             <span>Các Khóa học lái xe</span>
                                             <FontAwesomeIcon
                                                 icon={faChevronDown}
-                                                className={`transition-transform duration-300`}  
+                                                className={`transition-transform duration-300 ${
+                                                    isMobileDropdownOpen ? "rotate-180" : "rotate-0"
+                                                }`}   
                                             />   
-                                        </div>
+                                        </button>
+                                        <AnimatePresence>
                                         {isMobileDropdownOpen && (
-                                            <AnimatePresence>
                                                 <motion.ul 
                                                     initial={{ opacity: 0, height: 0 }} 
                                                     animate={{ opacity: 1, height: "auto" }} 
                                                     exit={{ opacity: 0, height: 0 }} 
-                                                    transition={{ duration: 0.3 }} 
+                                                    transition={{ duration: 0.1 }} 
                                                     className="bg-white px-6 text-[#250E62]"
                                                 >
                                                     <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/B0.1")}>Học lái xe ôtô hạng B0.1</li>
@@ -159,8 +156,8 @@ export default function NavBar() {
                                                     <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/A1")}>Học lái xe máy hạng A1</li>
                                                     <li className="px-4 py-4 cursor-pointer" onClick={() => navigate("hangxe/A2")}>Học lái xe máy hạng A2</li>
                                                 </motion.ul>
-                                        </AnimatePresence>
                                         )}
+                                        </AnimatePresence>
                                     </li>
                                     <li className="cursor-pointer transition-colors duration-100 border-b border-gray-300 p-4">
                                         <a href="#pricing">
