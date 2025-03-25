@@ -1,6 +1,25 @@
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
+    const features = [
+        {
+            title: "SÂN TẬP RIÊNG",
+            description: "Sân tập đạt tiêu chuẩn ISO 9001:2015. Học viên được học trực tiếp trên sân thi – xe thi."
+        },
+        {
+            title: "Tin Cậy",
+            description: "Giáo viên của chúng tôi là những người có phẩm chất đạo đức tốt, nhiều năm kinh nghiệm, nhiệt tình, chuyên nghiệp, trình độ cao."
+        },
+        {
+            title: "Ứng Dụng Công Nghệ",
+            description: "Sử dụng các bài giảng online lý thuyết, chia sẻ hình ảnh trực quan các bài tập thực hành bằng các phần mềm dạy học."
+        },
+        {
+            title: "100% Thực Hành Thực Tế",
+            description: "Hệ thống sân tập hiện đại, xe tập lái đời mới, giúp học viên có trải nghiệm thực tế trước khi thi sát hạch."
+        },
+        
+    ]
     return (
         <section id="about" className="bg-white text-[#250E62] w-full py-20">
             <div className="container mx-auto px-6 lg:px-12">
@@ -13,10 +32,10 @@ export default function AboutSection() {
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
+                        <h1 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight mb-6">
                             Về Chúng Tôi
                         </h1>
-                        <p className="mt-4 text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl font-normal">
+                        <p className="mt-4 text-base md:text-lg text-gray-700 leading-relaxed max-w-2xl font-normal">
                             Trung Tâm Đào Tạo Lái Xe Hoà Bình là đơn vị uy tín đào tạo lái xe an toàn, 
                             am hiểu luật GTĐB cho hơn <span className="font-semibold">100.000 học viên</span> sau 
                             khi kết thúc khoá học lái xe ô tô.
@@ -27,71 +46,26 @@ export default function AboutSection() {
                         </p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
-                            {/* Feature Cards */}
-                            <motion.div 
-                                className="bg-white/50 p-6 rounded-lg hover:shadow-lg border-white border hover:border-[#6C43E6] trasition-border transition transition-shadow"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.4 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-[#F54343] font-bold text-xl md:text-2xl mb-3">
-                                    SÂN TẬP RIÊNG
-                                </h2>
-                                <p className="text-gray-700 text-lg leading-relaxed">
-                                    Sân tập đạt tiêu chuẩn ISO 9001:2015. Học viên được học trực tiếp 
-                                    trên sân thi – xe thi.
-                                </p>
-                            </motion.div>
-                            <motion.div 
-                                className="bg-white/50 p-6 rounded-lg hover:shadow-lg border-white border hover:border-[#6C43E6] trasition-border transition transition-shadow"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 0.8 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-[#F54343] font-bold text-xl md:text-2xl mb-3">
-                                    Tin Cậy
-                                </h2>
-                                <p className="text-gray-700 text-lg leading-relaxed">
-                                    Giáo viên của chúng tôi là những người có phẩm chất đạo đức tốt, 
-                                    nhiều năm kinh nghiệm, nhiệt tình, chuyên nghiệp, trình độ cao.
-                                </p>
-                            </motion.div>
-                            <motion.div 
-                                className="bg-white/50 p-6 rounded-lg hover:shadow-lg border-white border hover:border-[#6C43E6] trasition-border transition transition-shadow"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1.2 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-[#F54343] font-bold text-xl md:text-2xl mb-3">
-                                    Ứng Dụng Công Nghệ
-                                </h2>
-                                <p className="text-gray-700 text-lg leading-relaxed">
-                                    Sử dụng các bài giảng online lý thuyết, chia sẻ hình ảnh trực quan 
-                                    các bài tập thực hành bằng các phần mềm dạy học.
-                                </p>
-                            </motion.div>
-                            <motion.div 
-                                className="bg-white/50 p-6 rounded-lg hover:shadow-lg border-white border hover:border-[#6C43E6] trasition-border transition transition-shadow"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: 1.6 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-[#F54343] font-bold text-xl md:text-2xl mb-3">
-                                    100% Thực Hành Thực Tế
-                                </h2>
-                                <p className="text-gray-700 text-lg leading-relaxed">
-                                    Hệ thống sân tập hiện đại, xe tập lái đời mới, giúp học viên có 
-                                    trải nghiệm thực tế trước khi thi sát hạch.
-                                </p>
-                            </motion.div>
+                            {features.map((feature, index) => (
+                                <motion.div 
+                                    key={index}
+                                    className="bg-white/50 p-5 cursor-default rounded-lg hover:shadow-lg border-white border hover:border-[#6C43E6] transition"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.4 }}
+                                    viewport={{ once: true }}
+                                >
+                                    <h2 className="text-[#F54343] font-bold text-lg md:text-xl mb-3">
+                                        {feature.title}
+                                    </h2>
+                                    <p className="text-gray-700 text-lg leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </motion.div>
+                            ))}
                         </div>
                     </motion.div>
 
-                    {/* Right Side - Image */}
                     <motion.div 
                         className="lg:w-1/2 w-full flex justify-center lg:sticky lg:top-24"
                         initial={{ opacity: 0, x: 50 }}

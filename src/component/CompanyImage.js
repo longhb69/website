@@ -1,6 +1,6 @@
 export default function CompanyImage({ src }) {
     return (
-      <div className="company-image rounded w-full max-w-[400px] h-[200px] overflow-hidden "
+      <div className="company-image rounded w-full max-w-full h-[15rem] overflow-hidden "
       >
         <img
           src={src}

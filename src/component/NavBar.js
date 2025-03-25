@@ -102,7 +102,7 @@ export default function NavBar() {
 
                 {/* Mobile Menu Button */}
                 <button 
-                    className="md:hidden text-[#D4E3ED]" 
+                    className="md:hidden text-[#D4E3ED] h-full" 
                     onClick={() => setMenuOpen(!menuOpen)}
                 >
                     <FontAwesomeIcon icon={menuOpen ? faX : faBars} className="text-[#250E62] text-xl" />

@@ -1,8 +1,9 @@
 import CompanyImage from "../component/CompanyImage";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import Splide from "@splidejs/splide";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import Modal from "../component/Modal";
-import { useState } from "react";
+import "@splidejs/splide/css";
+import { useState, useEffect, useRef } from "react";
 
 const splideOptions = {
     type: "loop",
@@ -12,6 +13,9 @@ const splideOptions = {
     pagination: false,
     autoplay: true,
     drag: true,
+    autoScroll: {
+        speed: 2,
+    },
 };
 
 const images1 = [
@@ -45,9 +49,45 @@ export default function PictureSection() {
     const [showModal, setShowModal] = useState(false);
     const [modalImages, setModalImages] = useState([]);
     const [slideIndex, setSlideIndex] = useState(0);
+    const splideRef = useRef(null);
+    const splideRef2 = useRef(null);
+
+    useEffect(() => {
+        if (splideRef.current) {
+            const splide1 = new Splide(splideRef.current, {
+                type       : "loop",
+                fixedWidth : '35rem',
+                gap        : '1rem',
+                arrows     : false,
+                pagination : false,
+                drag       : true,
+                autoScroll : {
+                    speed: 0.5,
+                },
+            });
+
+            splide1.mount({ AutoScroll });
+        }
+        if (splideRef2.current) {
+            const splide2 = new Splide(splideRef2.current, {
+                type       : "loop",
+                fixedWidth : '30rem',
+                gap        : '1rem',
+                arrows     : false,
+                pagination : false,
+                drag       : true,
+                autoScroll : {
+                    speed: -0.3,
+                },
+            });
+
+            splide2.mount({ AutoScroll });
+        }
+    }, []);
 
     const handleImageFocus = (index) => {
         setShowModal(true);
+        console.log("Hi")
         setModalImages(images1);
         setSlideIndex(index);
     };
@@ -74,27 +114,38 @@ export default function PictureSection() {
                     <div className="text-3xl font-bold text-[#250E62] text-center px-4 py-3">Một số hình ảnh trung tâm</div>
                     <div className="flex-1 border-t border-gray-400"></div>
                 </div>
-                <div className="mb-5">
-                    <Splide options={{ ...splideOptions, direction: "ltr" }}>
-                        {images1.map((image, idx) => (
-                            <SplideSlide key={idx}>
-                                <div onClick={() => handleImageFocus(idx)}>
-                                    <CompanyImage src={images1[idx].src} />
-                                </div>
-                            </SplideSlide>
-                        ))}
-                    </Splide>
+                <div className="mb-6">
+                    <div className="splide" ref={splideRef}>
+                        <div className="splide__track">
+                             <ul className="splide__list">
+                                {images1.map((image, idx) => (
+                                    <li className="splide__slide" >
+                                        <div 
+                                            onClick={() => handleImageFocus(idx)}
+                                            data-splide-no-drag="true"
+                                        >
+                                            <CompanyImage src={images1[idx].src} />
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <Splide className="second-slider" options={{ ...splideOptions, direction: "rtl" }}>
-                        {images2.map((image, idx) => (
-                            <SplideSlide key={idx}>
-                                <div className="image-slider-container" onClick={() => handleImageFocus2(idx)}>
-                                    <CompanyImage src={images2[idx].src} />
-                                </div>
-                            </SplideSlide>
-                        ))}
-                    </Splide>
+                    {/* <div className="splide" ref={splideRef2}>
+                        <div className="splide__track">
+                             <ul className="splide__list">
+                                {images2.map((image, idx) => (
+                                    <li className="splide__slide" >
+                                        <div className="image-slider-container" onClick={() => handleImageFocus2(idx)}>
+                                            <CompanyImage src={images2[idx].src} />
+                                        </div>
+                                    </li>
+                                ))}
+                             </ul>
+                        </div>
+                    </div> */}
                 </div>
             </div>
         </section>

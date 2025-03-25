@@ -9,6 +9,7 @@ import {
     faPhoneAlt 
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import Button from "../component/Button";
 
 export default function WhyChooseUsSection() {
     const features = [
@@ -101,12 +102,6 @@ export default function WhyChooseUsSection() {
                         <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
                         Đăng Ký Ngay
                     </button>
-                    <p className="mt-4 text-gray-600">
-                        Hoặc gọi ngay: <a href="tel:0123456789" className="text-[#F54343] font-semibold hover:text-[#E03333] transition-colors">
-                            <FontAwesomeIcon icon={faPhoneAlt} className="mr-1" />
-                            0123 456 789
-                        </a>
-                    </p>
                 </motion.div>
             </div>
         </section>
