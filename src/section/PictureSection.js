@@ -21,7 +21,7 @@ const splideOptions = {
 const images1 = [
     {
         title: "title1",
-        src: "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
+        src: "https://jagatplay.com/wp-content/uploads/2023/12/swen-vincke-larian-studios.jpg",
     },
     {
         title: "title2",
@@ -29,20 +29,20 @@ const images1 = [
     },
     {
         title: "title3",
-        src: "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
+        src: "https://cmsapi.larian.com/media/cache/image_file_media_default/uploads/image/65030ad2b8868.jpg",
     },
     {
         title: "title4",
         src: "https://media.glassdoor.com/l/9b/1c/ac/af/our-studio-patio.jpg?signature=dc4245bfb6988dd7df91782c11d8cbbdf35fa80c60d4fe160ce41a388a4c5cae",
     },
-    { title: "title5", src: "https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg" },
-];
-
-const images2 = [
-    { title: "title1", src: "https://jagatplay.com/wp-content/uploads/2023/12/swen-vincke-larian-studios.jpg" },
-    { title: "title2", src: "https://cmsapi.larian.com/media/cache/image_file_media_default/uploads/image/63e4f108c43bb.jpeg" },
-    { title: "title3", src: "https://cmsapi.larian.com/media/cache/image_file_media_default/uploads/image/63e4f0fc66ac2.jpeg" },
-    { title: "title4", src: "https://cmsapi.larian.com/media/cache/image_file_media_default/uploads/image/65030ad2b8868.jpg" },
+    { 
+        title: "title5", 
+        src: "https://farm2.staticflickr.com/1547/25428108074_c305f7866a_b.jpg" 
+    },
+    {
+        title: "title1", 
+        src: "https://cmsapi.larian.com/media/cache/image_file_media_default/uploads/image/63e4f0fc66ac2.jpeg",
+    }
 ];
 
 export default function PictureSection() {
@@ -50,7 +50,6 @@ export default function PictureSection() {
     const [modalImages, setModalImages] = useState([]);
     const [slideIndex, setSlideIndex] = useState(0);
     const splideRef = useRef(null);
-    const splideRef2 = useRef(null);
 
     useEffect(() => {
         if (splideRef.current) {
@@ -68,21 +67,6 @@ export default function PictureSection() {
 
             splide1.mount({ AutoScroll });
         }
-        if (splideRef2.current) {
-            const splide2 = new Splide(splideRef2.current, {
-                type       : "loop",
-                fixedWidth : '30rem',
-                gap        : '1rem',
-                arrows     : false,
-                pagination : false,
-                drag       : true,
-                autoScroll : {
-                    speed: -0.3,
-                },
-            });
-
-            splide2.mount({ AutoScroll });
-        }
     }, []);
 
     const handleImageFocus = (index) => {
@@ -92,12 +76,12 @@ export default function PictureSection() {
         setSlideIndex(index);
     };
 
-    const handleImageFocus2 = (index) => {
-        setShowModal(true);
-        setModalImages(images2);
-        setSlideIndex(index);
-        console.log(index);
-    };
+    // const handleImageFocus2 = (index) => {
+    //     setShowModal(true);
+    //     setModalImages(images2);
+    //     setSlideIndex(index);
+    //     console.log(index);
+    // };
 
     const closeModal = () => {
         setShowModal(false);

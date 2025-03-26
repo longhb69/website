@@ -59,7 +59,7 @@ export default function WhyChooseUsSection() {
                         Tại Sao Chọn Chúng Tôi?
                     </h2>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Với hơn 10 năm kinh nghiệm đào tạo, chúng tôi tự hào là trung tâm 
+                        Với hơn 6 năm kinh nghiệm đào tạo, chúng tôi tự hào là trung tâm 
                         đào tạo lái xe uy tín hàng đầu tại Hòa Bình
                     </p>
                 </motion.div>
@@ -90,19 +90,6 @@ export default function WhyChooseUsSection() {
                         </motion.div>
                     ))}
                 </div>
-
-                <motion.div 
-                    className="text-center mt-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    <button className="bg-[#F54343] text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-[#E03333] transition-colors duration-300 shadow-lg hover:shadow-xl">
-                        <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
-                        Đăng Ký Ngay
-                    </button>
-                </motion.div>
             </div>
         </section>
     );

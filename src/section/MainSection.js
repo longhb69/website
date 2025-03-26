@@ -2,7 +2,7 @@ import Button from "../component/Button";
 import NavBar from "../component/NavBar";
 import { motion } from "framer-motion";
 
-const ANIMATON_DURATION = 0.8;
+const ANIMATON_DURATION = 0.6;
 
 const sections = [
     {

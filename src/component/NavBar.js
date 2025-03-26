@@ -39,12 +39,62 @@ export default function NavBar() {
         }
     };
 
+    const Path = (props) => {
+        return (
+            <motion.path
+                fill="transparent"
+                strokeWidth="3"
+                stroke="hsl(0, 0%, 18%)"
+                strokeLinecap="round"
+                {...props}
+            />
+        )
+    }
+
+    const MenuToggle = ({ toggle, isOpen }) => {
+        return (
+            <button 
+                className="outline-none flex items-center justify-center border-none select-none cursor-pointer w-[50px] h-[50px] rounded-full bg-transparent md:hidden" 
+                onClick={toggle}
+            >
+                <svg width="23" height="23" viewBox="0 0 23 23">
+                    {/* Top Line */}
+                    <Path
+                        variants={{
+                            closed: { d: "M 2 2.5 L 20 2.5" },
+                            open: { d: "M 3 16.5 L 17 2.5" },
+                        }}
+                    />
+                    {/* Middle Line (Fades Out) */}
+                    <Path
+                        d="M 2 9.423 L 20 9.423"
+                        variants={{
+                            closed: { opacity: 1 },
+                            open: { opacity: 0 },
+                        }}
+                        transition={{ duration: 3 }}
+                    />
+                    {/* Bottom Line */}
+                    <Path
+                        variants={{
+                            closed: { d: "M 2 16.346 L 20 16.346" }, // Horizontal
+                            open: { d: "M 3 2.5 L 17 16.346" },  // Bottom-right to top-left (X)
+                        }}
+                    />
+                </svg>
+            </button>
+        );
+    };
+    
+
     return (
         <div className="bg-[#250E62] w-full">
             <div className="flex max-w-7xl relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] w-full md:w-[80%] md:mx-auto justify-between items-center px-5 md:px-0 py-6">
                 {/* Left Section */}
                 <div className="flex items-center">
-                    <h1 className="font-bold text-3xl text-[#FFCEBD]">LOGO</h1>
+                    <a href="/" className="bg-white rounded-full text-[#FFCEBD]">
+                        <img src="/logo512.png" alt="Logo" className="h-14 w-auto" />
+                    </a>
 
                     {/* Desktop Nav (Hidden on Mobile) */}
                     <ul className="hidden md:flex gap-10 ml-10 items-end">
@@ -75,11 +125,11 @@ export default function NavBar() {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="absolute left-0 font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
                                     >
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B0.1")}>Học lái xe ôtô hạng B0.1</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/B")}>Học lái xe ôtô hạng B</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/C")}>Học lái xe ôtô hạng C</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A1")}>Học lái xe máy hạng A1</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => navigate("hangxe/A2")}>Học lái xe máy hạng A2</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B0.1"); setIsDropdownOpen(false)}}>Học lái xe ôtô hạng B0.1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng B</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/C"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng C</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/A1"); setIsDropdownOpen(false)  }}>Học lái xe máy hạng A1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/A2"); setIsDropdownOpen(false)  }}>Học lái xe máy hạng A2</li>
                                     </motion.ul>
                                 )}
                             </AnimatePresence>
@@ -101,12 +151,20 @@ export default function NavBar() {
                 </div>
 
                 {/* Mobile Menu Button */}
-                <button 
+                {/*<button 
                     className="md:hidden text-[#D4E3ED] h-full" 
                     onClick={() => setMenuOpen(!menuOpen)}
                 >
                     <FontAwesomeIcon icon={menuOpen ? faX : faBars} className="text-[#250E62] text-xl" />
-                </button>
+                </button>*/}
+
+                <motion.nav
+                    initial={false}
+                    animate={menuOpen ? "open": "closed"}
+                    className="md:hidden"
+                >
+                    <MenuToggle toggle={() => setMenuOpen(!menuOpen)} isOpen={menuOpen} />
+                </motion.nav>
 
                 {/* Mobile Menu (Dropdown) i want change this to drawer, shit this getting messy*/}
                 <AnimatePresence>
@@ -150,11 +208,11 @@ export default function NavBar() {
                                                     transition={{ duration: 0.1 }} 
                                                     className="bg-white px-6 text-[#250E62]"
                                                 >
-                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/B0.1")}>Học lái xe ôtô hạng B0.1</li>
-                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/B")}>Học lái xe ôtô hạng B</li>
-                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/C")}>Học lái xe ôtô hạng C</li>
-                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => navigate("hangxe/A1")}>Học lái xe máy hạng A1</li>
-                                                    <li className="px-4 py-4 cursor-pointer" onClick={() => navigate("hangxe/A2")}>Học lái xe máy hạng A2</li>
+                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => { navigate("/hangxe/B0.1"); setMenuOpen(false)}}>Học lái xe ôtô hạng B0.1</li>
+                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => { navigate("/hangxe/B"); setMenuOpen(false)   }}>Học lái xe ôtô hạng B</li>
+                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => { navigate("/hangxe/C"); setMenuOpen(false)   }}>Học lái xe ôtô hạng C</li>
+                                                    <li className="px-4 py-4 cursor-pointer border-b border-gray-300" onClick={() => { navigate("/hangxe/A1"); setMenuOpen(false)  }}>Học lái xe máy hạng A1</li>
+                                                    <li className="px-4 py-4 cursor-pointer" onClick={() => { navigate("/hangxe/A2"); setMenuOpen(false)  }}>Học lái xe máy hạng A2</li>
                                                 </motion.ul>
                                         )}
                                         </AnimatePresence>
