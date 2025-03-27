@@ -28,6 +28,7 @@ export default function FooterSection() {
                 <div className="w-[30%] flex flex-col space-y-4 items-start">
                     <div className="font-semibold text-lg">TRỢ GIÚP</div>
                     <div>Liên hệ hỗ trợ, khiếu nại</div>
+                    <div><span className="font-bold">Địa chỉ: </span>Tổ 1 Phường Dân Chủ, Thành phố Hòa Bình, Tỉnh Hòa Bình</div>
                 </div>
                 <div className="w-full lg:w-[40%]">
                     <iframe

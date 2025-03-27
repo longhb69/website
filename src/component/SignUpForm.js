@@ -25,8 +25,8 @@ export default function SignUpForm({ licenseType }) {
     };
 
     return (
-        <div className="py-10">
-            <div className="container mx-auto px-4">
+        <div className="pt-10 sticky top-5">
+            <div className="container mx-auto px-0 md:px-4">
                 <motion.div 
                     className="max-w-3xl mx-auto"
                     initial={{ opacity: 0, y: 20 }}

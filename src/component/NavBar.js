@@ -85,6 +85,17 @@ export default function NavBar() {
             </button>
         );
     };
+
+    const handleNavigate  = (event, sectionId) => {
+        event.preventDefault();
+        const target = document.getElementById(sectionId);
+        
+        if(target) {
+            target.scrollIntoView({});
+        } else {
+            navigate(`/#${sectionId}`)
+        }
+    }
     
 
     return (
@@ -99,7 +110,7 @@ export default function NavBar() {
                     {/* Desktop Nav (Hidden on Mobile) */}
                     <ul className="hidden md:flex gap-10 ml-10 items-end">
                         <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">
-                            <a href="#about" onClick={handleSmoothScroll}>
+                            <a href="#about" onClick={(e) => handleNavigate(e, "about")}>
                                 Giới Thiệu
                             </a>
                         </li>
@@ -135,7 +146,7 @@ export default function NavBar() {
                             </AnimatePresence>
                         </li>
                         <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">
-                            <a href="#pricing">
+                            <a href="#pricing" onClick={(e) => handleNavigate(e, "pricing")}>
                                 Giá cả
                             </a>
                         </li>

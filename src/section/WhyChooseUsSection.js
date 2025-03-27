@@ -68,7 +68,7 @@ export default function WhyChooseUsSection() {
                     {features.map((feature, index) => (
                         <motion.div
                             key={feature.title}
-                            className="bg-white rounded-xl p-6 cursor-default shadow-lg hover:shadow-xl transition-all duration-300 group"
+                            className="bg-white rounded-xl p-6 cursor-pointer shadow-lg hover:shadow-xl transition-all duration-300 group"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}

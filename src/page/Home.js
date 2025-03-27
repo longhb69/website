@@ -8,8 +8,22 @@ import NavBar from "../component/NavBar";
 import SignUpSection from "../section/SignUpSection";
 import WhyChooseUsSection from "../section/WhyChooseUsSection";
 import ScrollToTop from "../component/ScrollToTop";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
+    const location = useLocation()
+
+    useEffect(() => {
+        const hash = location.hash.substring(1); //remove the #
+        if(hash) {
+            const target = document.getElementById(hash)
+            if(target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    }, [location])
+
     return (
         <div>
             <NavBar />
