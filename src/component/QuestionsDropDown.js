@@ -36,19 +36,19 @@ export default function QuestionsDropDown() {
     ];
     return (
         <motion.div 
-            className="relative w-full bg-white border border-gray-300 rounded-lg shadow-lg"
+            className="relative w-full"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0}}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: "easeIn"}}
         >
-            <ul className="w-full text-xl rounded-lg font-semibold">
+            <ul className="w-full text-xl text-[#250E62] rounded-lg font-semibold">
                 {questionsItems.map((question, index) => (
-                    <>
-                        <li 
+                    <li>
+                        <div 
                             key={index} 
                             className={`
-                                border-b p-5 cursor-pointer bg-gray-100 transition-all 
+                                border border-[#D5DFFF] p-5 mb-2 rounded-xl cursor-pointer bg-white transition-all 
                                 ${index === 0 ? "rounded-t-lg" : ""}  
                                 ${index === questionsItems.length - 1 && !openIndex[index] ? "rounded-b-lg" : ""} /* Round the last item only if closed */
                             `}
@@ -59,28 +59,30 @@ export default function QuestionsDropDown() {
                                 <motion.div
                                     animate={{ rotate: openIndex[index] ? 180 : 0 }}
                                     transition={{ duration: 0.2, ease: "easeInOut" }}
-                                    className="bg-[#250E62] rounded-full p-2 h-[28px] w-[28px] flex items-center justify-center"
+                                    className="bg-[#B197FC] rounded-full p-2 h-[25px] w-[25px] flex items-center justify-center"
                                 >
-                                    <FontAwesomeIcon icon={openIndex[index] ? faMinus : faPlus} className={`text-white`}/>
+                                    <FontAwesomeIcon icon={openIndex[index] ? faMinus : faPlus} className={`text-black text-sm`}/>
                                 </motion.div>
                             </button>
-
-                        </li>
-                        <motion.div
+                            <motion.div
                                 initial={{ opacity: 0, height: 0 }}
                                 animate={{
                                     opacity: openIndex[index] ? 1 : 0,
+                                    y: 10,
                                     height: openIndex[index] ? "auto" : 0,
                                 }}
                                 transition={{ duration: 0.2 }}
-                                className="overflow-hidden px-5 bg-white"
+                                className={`overflow-hidden bg-white`}
                             >
                                 <div 
-                                    className="text-gray-700 text-lg py-2"
-                                    dangerouslySetInnerHTML={{ __html: question.answer }}>
+                                    className="text-gray-700 cursor-default text-lg py-5"
+                                    dangerouslySetInnerHTML={{ __html: question.answer }}
+                                    onClick={(e) => e.stopPropagation()}
+                                >
                                 </div>
-                        </motion.div>
-                    </>
+                            </motion.div>
+                        </div>
+                    </li>
                 ))}
             </ul>
         </motion.div>
