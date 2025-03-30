@@ -1,5 +1,6 @@
 import Button from "../component/Button";
 import NavBar from "../component/NavBar";
+import AnimatedCounter from "../component/AnimatedCounter"
 import { motion } from "framer-motion";
 
 const ANIMATON_DURATION = 0.6;
@@ -32,8 +33,8 @@ export default function MainSection() {
     return (
         <>
             <section className="bg-[#250E62] w-full min-h-[95vh] py-12">
-                <div className="container max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row gap-10 items-center">
+                <div className="container max-w-[80%] mx-auto px-4">
+                    <div className="flex flex-col text-center md:text-left md:flex-row gap-10 items-center">
                         <motion.div 
                             className="text-[#FFCEBD] w-full md:w-[40%] leading-relaxed"
                             initial={{ opacity: 0, x: -50 }}
@@ -62,6 +63,7 @@ export default function MainSection() {
                                 </p>
                             </motion.div>
                             <motion.div
+                                className="flex justify-center md:justify-start"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: ANIMATON_DURATION, delay: 0.6 }}
@@ -73,6 +75,11 @@ export default function MainSection() {
                                     Khám Phá Ngay
                                 </Button>
                             </motion.div>
+
+                            <div className="mt-10">
+                                <AnimatedCounter ANIMATON_DURATION={ANIMATON_DURATION}/>
+                            </div>
+
                         </motion.div>
                         <motion.div 
                             className="w-full md:w-[60%]"

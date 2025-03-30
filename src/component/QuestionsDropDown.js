@@ -48,13 +48,10 @@ export default function QuestionsDropDown() {
                         <div 
                             key={index} 
                             className={`
-                                border border-[#D5DFFF] p-5 mb-2 rounded-xl cursor-pointer bg-white transition-all 
-                                ${index === 0 ? "rounded-t-lg" : ""}  
-                                ${index === questionsItems.length - 1 && !openIndex[index] ? "rounded-b-lg" : ""} /* Round the last item only if closed */
-                            `}
+                                border border-[#D5DFFF] p-5 mb-2 rounded-xl cursor-pointer bg-white transition-all `}
                             onClick={() => toggleDropdown(index)}
                         >
-                            <button className='flex items-center rounded-t-lg justify-between gap-4 text-left w-full'>
+                            <button className='flex items-center justify-between gap-4 text-left w-full'>
                                 {question.title}
                                 <motion.div
                                     animate={{ rotate: openIndex[index] ? 180 : 0 }}

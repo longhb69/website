@@ -99,22 +99,22 @@ export default function NavBar() {
     
 
     return (
-        <div className="bg-[#250E62] w-full">
-            <div className="flex max-w-7xl relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] w-full md:w-[80%] md:mx-auto justify-between items-center px-5 md:px-0 py-6">
+        <div className="bg-[#250E62] w-full h-[20%]">
+            <div className="flex w-full md:w-[80%] md:mx-auto p-5 md:px-0 md:py-10 relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] justify-between items-center">
                 {/* Left Section */}
-                <div className="flex items-center">
+                <div className="flex items-center h-full">
                     <a href="/" className="bg-white rounded-full text-[#FFCEBD]">
                         <img src="/logo512.png" alt="Logo" className="h-14 w-auto" />
                     </a>
-
+                    
                     {/* Desktop Nav (Hidden on Mobile) */}
                     <ul className="hidden md:flex gap-10 ml-10 items-end">
-                        <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">
-                            <a href="#about" onClick={(e) => handleNavigate(e, "about")}>
+                        <li className="cursor-pointer h-14 flex items-center hover:text-[#B197FC] transition-colors duration-100">
+                            <a href="#about h-full" onClick={(e) => handleNavigate(e, "about")}>
                                 Giới Thiệu
                             </a>
                         </li>
-                        <li className="relative" ref={dropdownRef}>
+                        <li className="relative h-14 flex items-center" ref={dropdownRef}>
                             <button
                                 className="cursor-pointer flex items-center gap-2 hover:text-[#B197FC] transition-colors duration-100"
                                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -134,7 +134,7 @@ export default function NavBar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        className="absolute left-0 font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
+                                        className="absolute left-0 top-[80%] font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
                                     >
                                         <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B0.1"); setIsDropdownOpen(false)}}>Học lái xe ôtô hạng B0.1</li>
                                         <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng B</li>
@@ -145,12 +145,12 @@ export default function NavBar() {
                                 )}
                             </AnimatePresence>
                         </li>
-                        <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">
+                        <li className="cursor-pointer h-14 flex items-center hover:text-[#B197FC] transition-colors duration-100">
                             <a href="#pricing" onClick={(e) => handleNavigate(e, "pricing")}>
                                 Giá cả
                             </a>
                         </li>
-                        <li className="cursor-pointer hover:text-[#B197FC] transition-colors duration-100">Liên Hệ</li>
+                        <li className="cursor-pointer h-14 flex items-center hover:text-[#B197FC] transition-colors duration-100 ">Liên Hệ</li>
                     </ul>
                 </div>
 
