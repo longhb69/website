@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../component/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,6 +23,10 @@ export default function SignUpForm({ licenseType }) {
         console.log(data);
         // Handle form submission
     };
+
+    useEffect(() => {
+        setLicenseSelected(licenseType)
+    }, [licenseType])
 
     return (
         <div className="pt-10 sticky top-5">

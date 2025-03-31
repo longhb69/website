@@ -36,7 +36,7 @@ export default function MainSection() {
                 <div className="container max-w-[80%] mx-auto px-4">
                     <div className="flex flex-col text-center md:text-left md:flex-row gap-10 items-center">
                         <motion.div 
-                            className="text-[#FFCEBD] w-full md:w-[40%] leading-relaxed"
+                            className="text-[#FFCEBD] w-full md:w-[45%] leading-relaxed"
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: ANIMATON_DURATION }}
@@ -62,6 +62,11 @@ export default function MainSection() {
                                     giảng dạy thực tế.
                                 </p>
                             </motion.div>
+
+                            <div className="mt-10">
+                                <AnimatedCounter ANIMATON_DURATION={ANIMATON_DURATION}/>
+                            </div>
+
                             <motion.div
                                 className="flex justify-center md:justify-start"
                                 initial={{ opacity: 0, y: 20 }}
@@ -76,13 +81,9 @@ export default function MainSection() {
                                 </Button>
                             </motion.div>
 
-                            <div className="mt-10">
-                                <AnimatedCounter ANIMATON_DURATION={ANIMATON_DURATION}/>
-                            </div>
-
                         </motion.div>
                         <motion.div 
-                            className="w-full md:w-[60%]"
+                            className="w-full md:w-[55%]"
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: ANIMATON_DURATION, delay: 0.2 }}

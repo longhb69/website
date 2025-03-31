@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom"
+import { useState, useEffect } from "react";
 import SignUpSection from "../section/SignUpSection"
 import SignUpForm from "../component/SignUpForm";
 import NavBar from "../component/NavBar"
@@ -6,7 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function CarClass() {
+    const [licenseType, setLicenseType] = useState("")
     const { name } = useParams();
+
+    useEffect(() => {
+        setLicenseType(name)
+    }, [name])
+
 
     const B = () => {
         return (
@@ -15,6 +22,15 @@ export default function CarClass() {
                     <h1 className="text-3xl font-bold text-[#250E62] mb-6">
                         Học Lái Xe Ô Tô Hạng B
                     </h1>
+
+                    <div className="w-full flex gap-5">
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://carro.sg/blog/wp-content/uploads/2015/10/manual-car-and-automatic-car-gear-shifts.jpg"/>
+                        </div>
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://xetaiisuzuhcm.com/wp-content/uploads/2019/05/Xe-t%E1%BA%A3i-Isuzu-1.5-t%E1%BA%A5n-1.jpg"/>
+                        </div>
+                    </div>
 
                     <div className="bg-white border-gray-400 border rounded-xl p-6 shadow-lg space-y-4">
                         <h2 className="text-xl font-semibold text-[#250E62]">
@@ -108,6 +124,15 @@ export default function CarClass() {
                         Học Lái Xe Ô Tô Hạng B1 (Số Tự Động)
                     </h1>
 
+                    <div className="w-full flex gap-5">
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://d1gymyavdvyjgt.cloudfront.net/drive/images/uploads/headers/ws_cropper/1_0x0_790x520_0x520_how_to_drive_an_automatic_car.jpg"/>
+                        </div>
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/driveau/upload/cms/uploads/a33329c3-54ee-556a-a76d-8e6878d50000"/>
+                        </div>
+                    </div>
+
                     <div className="bg-white border-gray-400 border rounded-xl p-6 shadow-lg space-y-4">
                         <h2 className="text-xl font-semibold text-[#250E62]">
                             Bằng B1 số tự động được phép lái:
@@ -185,6 +210,15 @@ export default function CarClass() {
                     <h1 className="text-3xl font-bold text-[#250E62] mb-6">
                         Học Lái Xe Ô Tô Hạng C
                     </h1>
+
+                    <div className="w-full flex gap-5">
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://imgcdn.tapchicongthuong.vn/cartime-media/23/3/16/tmt_motors_2.jpg"/>
+                        </div>
+                        <div className="w-[50%]">
+                            <img className="rounded w-full h-[200px]" src="https://xetaiisuzuhcm.com/wp-content/uploads/2019/05/Xe-t%E1%BA%A3i-Isuzu-1.5-t%E1%BA%A5n-1.jpg"/>
+                        </div>
+                    </div>
 
                     <div className="bg-white border-gray-400 border rounded-xl p-6 shadow-lg space-y-4">
                         <h2 className="text-xl font-semibold text-[#250E62]">
@@ -288,7 +322,7 @@ export default function CarClass() {
         <div className="flex p-10">
             {renderLicenseInfo()}
             <div className="w-[40%]">
-            <SignUpForm licenseType={ name }/>
+            <SignUpForm licenseType={ licenseType }/>
             </div>
         </div>
     </>
