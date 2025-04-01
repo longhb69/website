@@ -99,17 +99,17 @@ export default function NavBar() {
     
 
     return (
-        <div className="bg-[#250E62] w-full h-[20%]">
-            <div className="flex w-full md:w-[80%] md:mx-auto p-5 md:px-0 md:py-10 relative text-[#D4E3ED] bg-[#F54343] md:bg-[#250E62] justify-between items-center">
+        <div className="md:bg-[#FFFFFF] w-full h-[20%]">
+            <div className="flex w-full md:w-[80%] md:mx-auto p-5 md:px-0 md:py-3 relative text-[#121212] bg-transparent justify-between items-center">
                 {/* Left Section */}
-                <div className="flex items-center h-full">
-                    <a href="/" className="bg-white rounded-full text-[#FFCEBD]">
+                <div className="flex font-semibold items-center h-full">
+                    <a href="/" className="bg-white md:ml-5 rounded-full">
                         <img src="/logo512.png" alt="Logo" className="h-14 w-auto" />
                     </a>
                     
                     {/* Desktop Nav (Hidden on Mobile) */}
                     <ul className="hidden md:flex gap-10 ml-10 items-end">
-                        <li className="cursor-pointer h-14 flex items-center hover:text-[#B197FC] transition-colors duration-100">
+                        <li className="cursor-pointer h-14 flex items-center hover:text-[#121212] transition-colors duration-100">
                             <a href="#about h-full" onClick={(e) => handleNavigate(e, "about")}>
                                 Giới Thiệu
                             </a>
@@ -155,7 +155,7 @@ export default function NavBar() {
                 </div>
 
                 {/* Right Section */}
-                <div className="hidden md:block self-end">
+                <div className="hidden md:block text-semibold self-center mt-2">
                     <Button className="w-[10rem] h-[2rem]" onClick={handleRegisterClick}>
                         Đăng ký ngay
                     </Button>

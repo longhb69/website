@@ -32,7 +32,7 @@ const sections = [
 export default function MainSection() {
     return (
         <>
-            <section className="bg-[#250E62] w-full min-h-[95vh] py-12">
+            <section className="bg-[#250E62] w-full min-h-[95vh] py-14">
                 <div className="container max-w-[80%] mx-auto px-4">
                     <div className="flex flex-col text-center md:text-left md:flex-row gap-10 items-center">
                         <motion.div 
