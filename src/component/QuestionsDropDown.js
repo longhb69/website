@@ -19,14 +19,14 @@ export default function QuestionsDropDown() {
             title: "Độ tuổi để đăng ký học lái xe?", 
             answer: `
                     <p>Độ tuổi để có thể đăng ký học lái xe tại Trung tâm được quy định tại <strong>thông tư 58/2015/TT-BGTVT</strong> như sau:</p>
-                    <ul class="list-disc pl-5">
-                        <li><strong>Đủ 18 tuổi</strong> trở lên được phép học bằng lái xe mô tô hạng A1, ô tô hạng B1, B2.</li>
-                        <li><strong>Đủ 21 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng C.</li>
-                        <li><strong>Đủ 24 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng D & đủ số Km lái xe an toàn theo quy định.</li>
-                        <li><strong>Đủ 27 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng E & đủ số Km lái xe an toàn theo quy định.</li>
-                    </ul>
+                        <ul class="list-disc pl-5">
+                            <li><strong>Đủ 18 tuổi</strong> trở lên được phép học bằng lái xe mô tô hạng A1, ô tô hạng B1, B2.</li>
+                            <li><strong>Đủ 21 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng C.</li>
+                            <li><strong>Đủ 24 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng D & đủ số Km lái xe an toàn theo quy định.</li>
+                            <li><strong>Đủ 27 tuổi</strong> trở lên được phép học bằng lái xe ô tô hạng E & đủ số Km lái xe an toàn theo quy định.</li>
+                        </ul>
                     <p>Tuổi tối đa để đăng ký học bằng E là <strong>55 tuổi đối với Nam</strong>, <strong>50 tuổi đối với Nữ</strong>.</p>
-                `
+                    `
         },
         { title: "Hồ sơ của người học lái xe?", answer: "Answer 2" },
         { title: "Thời gian học lái xe?", answer: "Answer 3" },
@@ -42,13 +42,13 @@ export default function QuestionsDropDown() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, ease: "easeIn"}}
         >
-            <ul className="w-full text-xl text-[#250E62] rounded-lg font-semibold">
+            <ul className="w-full text-xl text-[#250E62] rounded-lg font-bold">
                 {questionsItems.map((question, index) => (
                     <li>
                         <div 
                             key={index} 
                             className={`
-                                border border-[#D5DFFF] p-5 mb-2 rounded-xl cursor-pointer bg-white transition-all `}
+                                border border-[#D5DFFF] p-7 mb-2 rounded-xl cursor-pointer bg-white transition-all `}
                             onClick={() => toggleDropdown(index)}
                         >
                             <button className='flex items-center justify-between gap-4 text-left w-full'>
@@ -72,7 +72,7 @@ export default function QuestionsDropDown() {
                                 className={`overflow-hidden bg-white`}
                             >
                                 <div 
-                                    className="text-gray-700 cursor-default text-lg py-5"
+                                    className="text-[#2f1c6a] cursor-default text-base font-normal py-5"
                                     dangerouslySetInnerHTML={{ __html: question.answer }}
                                     onClick={(e) => e.stopPropagation()}
                                 >

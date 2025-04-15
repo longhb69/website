@@ -156,7 +156,7 @@ export default function NavBar() {
 
                 {/* Right Section */}
                 <div className="hidden md:block text-semibold self-center mt-2">
-                    <Button className="w-[10rem] h-[2rem]" onClick={handleRegisterClick}>
+                    <Button className="w-[10rem] h-[2rem]" variant="secondary" onClick={handleRegisterClick}>
                         Đăng ký ngay
                     </Button>
                 </div>

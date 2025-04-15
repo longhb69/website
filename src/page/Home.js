@@ -4,6 +4,7 @@ import VideoSection from "../section/VideoSection";
 import PictureSetion from "../section/PictureSection";
 import CommentSection from "../section/CommentSection";
 import AboutSection from "../section/AboutSection";
+import MapSection from "../section/MapSection";
 import NavBar from "../component/NavBar";
 import SignUpSection from "../section/SignUpSection";
 import WhyChooseUsSection from "../section/WhyChooseUsSection";
@@ -32,6 +33,7 @@ export default function Home() {
             <VideoSection />
             <PictureSetion />
             <WhyChooseUsSection />
+            <MapSection />
             <PriceSection />
             <CommentSection />
             <SignUpSection className={""}/>

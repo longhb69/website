@@ -90,12 +90,12 @@ export default function PictureSection() {
     };
 
     return (
-        <section className="bg-[#FFCEBD] w-full h-full py-10 relative">
+        <section className="bg-[#FFCEBD] w-full h-[500px] py-10 relative">
             <Modal open={showModal} onClose={closeModal} modalImages={modalImages} slideIndex={slideIndex} setSlideIndex={setSlideIndex} />
-            <div className="w-full ">
+            <div className="w-full h-full">
                 <div className="flex items-center w-full pb-5">
                     <div className="flex-1 border-t border-gray-400"></div>
-                    <div className="text-3xl font-bold text-[#250E62] text-center px-4 py-3">Một số hình ảnh trung tâm</div>
+                    <div className="text-4xl font-bold text-[#250E62] text-center px-4 py-3">Một số hình ảnh trung tâm</div>
                     <div className="flex-1 border-t border-gray-400"></div>
                 </div>
                 <div className="mb-6">
