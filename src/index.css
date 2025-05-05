@@ -98,3 +98,20 @@ dialog::backdrop {
 .modalCarouselWrapper {
   align-items: center !important;
 }
+
+@keyframes shrinkRightToLeft {
+  0% {
+    transform: scaleX(1); /* Full width */
+    opacity: 1; /* Fully visible */
+    transform-origin: left; /* Shrink from right */
+  }
+  100% {
+    transform: scaleX(0); /* No width (shrink) */
+    opacity: 0; /* Fully transparent */
+  }
+}
+
+.shrink-disappear {
+  animation: shrinkRightToLeft 0.5s forwards; /* Apply animation with 0.5s duration */
+  transform-origin: left; /* Shrink from right */
+}

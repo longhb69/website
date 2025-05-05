@@ -48,10 +48,10 @@ export default function QuestionsDropDown() {
                         <div 
                             key={index} 
                             className={`
-                                border border-[#D5DFFF] p-7 mb-2 rounded-xl cursor-pointer bg-white transition-all `}
+                                border border-[#D5DFFF] p-7 mb-2 rounded-xl cursor-pointer hover:bg-[#F0F4FF] bg-white transition-all `}
                             onClick={() => toggleDropdown(index)}
                         >
-                            <button className='flex items-center justify-between gap-4 text-left w-full'>
+                            <button className='flex items-center justify-between gap-4 text-left text-[#2F1C6A] w-full'>
                                 {question.title}
                                 <motion.div
                                     animate={{ rotate: openIndex[index] ? 180 : 0 }}
@@ -69,10 +69,10 @@ export default function QuestionsDropDown() {
                                     height: openIndex[index] ? "auto" : 0,
                                 }}
                                 transition={{ duration: 0.2 }}
-                                className={`overflow-hidden bg-white`}
+                                className={`overflow-hidden bg-transparent`}
                             >
                                 <div 
-                                    className="text-[#2f1c6a] cursor-default text-base font-normal py-5"
+                                    className="text-[#2f1c6a] cursor-default  text-lg font-normal py-5"
                                     dangerouslySetInnerHTML={{ __html: question.answer }}
                                     onClick={(e) => e.stopPropagation()}
                                 >

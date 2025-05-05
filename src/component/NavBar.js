@@ -100,7 +100,7 @@ export default function NavBar() {
 
     return (
         <div className="md:bg-[#FFFFFF] w-full h-[20%]">
-            <div className="flex w-full md:w-[80%] md:mx-auto p-5 md:px-0 md:py-3 relative text-[#121212] bg-transparent justify-between items-center">
+            <div className="flex w-full md:w-[90%] md:mx-auto p-5 md:px-0 md:py-3 relative text-[#121212] bg-transparent justify-between items-center">
                 {/* Left Section */}
                 <div className="flex font-semibold items-center h-full">
                     <a href="/" className="bg-white md:ml-5 rounded-full">
@@ -134,12 +134,12 @@ export default function NavBar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        className="absolute left-0 top-[80%] font-semibold mt-2 w-64  bg-[#FFCEBD] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
+                                        className="absolute z-[100] left-0 top-[80%] font-semibold mt-2 border border-black w-64  bg-[#fff] text-[#250E62] shadow-lg rounded-lg overflow-hidden"
                                     >
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B0.1"); setIsDropdownOpen(false)}}>Học lái xe ôtô hạng B0.1</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng B</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/C"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng C</li>
-                                        <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/A1"); setIsDropdownOpen(false)  }}>Học lái xe máy hạng A1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] border-b border-gray-300 hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B0.1"); setIsDropdownOpen(false)}}>Học lái xe ôtô hạng B0.1</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] border-b border-gray-300 hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/B"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng B</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] border-b border-gray-300 hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/C"); setIsDropdownOpen(false)   }}>Học lái xe ôtô hạng C</li>
+                                        <li className="px-4 py-2 hover:bg-[#E13D46] border-b border-gray-300 hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/A1"); setIsDropdownOpen(false)  }}>Học lái xe máy hạng A1</li>
                                         <li className="px-4 py-2 hover:bg-[#E13D46] hover:text-white cursor-pointer" onClick={() => { navigate("/hangxe/A2"); setIsDropdownOpen(false)  }}>Học lái xe máy hạng A2</li>
                                     </motion.ul>
                                 )}

@@ -90,7 +90,7 @@ export default function PictureSection() {
     };
 
     return (
-        <section className="bg-[#FFCEBD] w-full h-[500px] py-10 relative">
+        <section className="bg-[#FFCEBD] w-full py-10 relative">
             <Modal open={showModal} onClose={closeModal} modalImages={modalImages} slideIndex={slideIndex} setSlideIndex={setSlideIndex} />
             <div className="w-full h-full">
                 <div className="flex items-center w-full pb-5">
@@ -99,7 +99,7 @@ export default function PictureSection() {
                     <div className="flex-1 border-t border-gray-400"></div>
                 </div>
                 <div className="mb-6">
-                    <div className="splide" ref={splideRef}>
+                    {/* <div className="splide" ref={splideRef}>
                         <div className="splide__track">
                              <ul className="splide__list">
                                 {images1.map((image, idx) => (
@@ -114,7 +114,20 @@ export default function PictureSection() {
                                 ))}
                             </ul>
                         </div>
-                    </div>
+                    </div> */}
+                    <ul className="grid grid-cols-3 gap-4 p-4 place-items-center">
+                        {images1.map((image, idx) => (
+                            <li className="">
+                                <div 
+                                    onClick={() => handleImageFocus(idx)}
+                                    data-splide-no-drag="true"
+                                    className="h-[300px] w-[500px]"
+                                >
+                                    <CompanyImage src={images1[idx].src} />
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <div>
                     {/* <div className="splide" ref={splideRef2}>
